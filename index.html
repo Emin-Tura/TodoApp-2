@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <nav>
+          <ul class="notSelect">
+            <li>Day</li>
+            <li>Week</li>
+            <li>Month</li>
+            <li>Year</li>
+          </ul>
+        </nav>
+        <section class="one">
+          <!-- Slide Date -->
+          <div class="date-box">
+            <i class="fas fa-chevron-left notSelect dart"></i>
+            <div class="date nowD">
+              <h1 class="dateDay"></h1>
+              <p class="dateMonth"></p>
+            </div>
+            <i class="fas fa-chevron-right notSelect dart"></i>
+          </div>
+        </section>
+
+        <div class="section2">
+          <div class="add-box">
+            <img src="img/bars.png" class="" alt="" />
+            <input type="text" placeholder="Add a task..." id="todo-input" />
+            <i class="fas fa-folder-plus"></i>
+          </div>
+
+          <div class="card-body">
+            <ul class="list-group">
+              <!-- <li class="list-group-item">
+                <i class="fas fa-thumbtack"></i>
+                <input type="checkbox" />
+                <label for="" class="text-input"></label>
+                <i class="fas fa-ellipsis-h"> </i>
+
+                <ul class="hidden">
+                  <li class="hiddenList">
+                    <img src="img/mark.png" alt="" />
+                    <span class="textsize">Pin on the top</span>
+                  </li>
+                  <li class="hiddenList">
+                    <img src="img/file.png" alt="" />
+                    <span class="textsize"> Add a memo</span>
+                  </li>
+                  <li class="hiddenList">
+                    <img src="img/delete.png" alt="" />
+                    <span class="textsize">Delete</span>
+                  </li>
+                </ul>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

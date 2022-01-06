@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(71, 30, 30);
+  background: linear-gradient(
+    180deg,
+    rgba(71, 30, 30, 1) 3%,
+    rgba(13, 84, 84, 1) 37%,
+    rgba(8, 129, 90, 1) 56%,
+    rgba(8, 131, 95, 1) 68%,
+    rgba(53, 25, 117, 1) 100%
+  );
+}
+.box {
+  width: 450px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3c424a;
+  padding: 1rem;
+  border-radius: 5px;
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  list-style-type: none;
+  margin: 0 1rem;
+  color: #585e66;
+  cursor: pointer;
+  padding: 4px 8px;
+  position: relative;
+}
+nav ul li:hover {
+  color: #d3dee9;
+  font-weight: 500;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+nav ul li:hover::after {
+  width: 100%;
+}
+nav ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #ef6291;
+  display: block;
+  margin: 0.5rem auto 0;
+  transition: 0.5s;
+}
+
+.one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+.date-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dayD,
+.weekD,
+.monthD {
+  display: none;
+}
+
+.date {
+  margin: 0 3rem;
+  text-align: center;
+  color: #747a83;
+}
+.date h1 {
+  font-size: 1.75rem;
+  color: #e1eaf2;
+}
+.dart {
+  font-size: 1.35rem;
+  color: #515863;
+  cursor: pointer;
+}
+.section2 {
+  width: 95%;
+  padding: 0 1rem;
+}
+.add-box {
+  background: #343a40;
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+.add-box img {
+  width: 18px;
+}
+.add-box .fas {
+  cursor: pointer;
+  width: 18px;
+  color: rosybrown;
+}
+.add-box input {
+  width: 100%;
+  background: transparent;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  color: #a3acb9;
+  font-size: 1em;
+}
+.card-body {
+  margin: 1rem 0.25rem;
+  position: relative;
+}
+.card-body .list-group-item {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 1rem 0;
+}
+.card-body .list-group-item .fa-thumbtack {
+  position: absolute;
+  left: -1.5rem;
+  color: #ec608f;
+  transform: rotate(-30deg);
+}
+.card-body .list-group-item .text-input {
+  border: none;
+  outline: none;
+  background-color: transwparent;
+  padding: 0.5rem;
+  color: #b7b9d0;
+  font-size: 1rem;
+  width: 90%;
+  overflow: hidden;
+  margin: 0 0.5rem;
+}
+.card-body .list-group-item input[type='checkbox'] {
+  position: relative;
+  cursor: pointer;
+}
+input[type='checkbox']:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #555555;
+  border-radius: 3px;
+  background-color: #484f59;
+}
+input[type='checkbox']:checked:after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid #a2a5aa;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+}
+input[type='checkbox']:checked + .text-input {
+  text-decoration: line-through;
+  color: #4c4e63;
+  transition: 0.5s ease-out;
+}
+.notSelect {
+  user-select: none;
+}
+.card-body .list-group-item .fa-ellipsis-h {
+  color: #9ea7b4;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: relative;
+}
+.card-body .list-group-item .fa-ellipsis-h:hover {
+  opacity: 0.5;
+}
+.hidden {
+  position: absolute;
+  top: 2rem;
+  right: -5px;
+  padding: 1rem;
+  height: auto;
+  background-color: #484f59;
+  border-radius: 5px;
+  z-index: 999;
+  display: none;
+}
+
+.hidden .hiddenList {
+  padding: 0.25rem 0;
+  color: #a3acb9;
+  cursor: pointer;
+  list-style: none;
+}
+.hidden .hiddenList:hover {
+  opacity: 0.5;
+}
+.hidden .hiddenList img {
+  width: 1.75rem;
+  margin-bottom: -0.3rem;
+  padding-right: 0.5rem;
+  color: #a3acb9;
+}
+.hidden::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 5px;
+  margin-left: -5px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #484f59 transparent;
+}
