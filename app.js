@@ -8,27 +8,97 @@ const dateDay = document.querySelector('.dateDay');
 const dateMonth = document.querySelector('.dateMonth');
 const next = document.querySelector('.fa-chevron-right');
 const prev = document.querySelector('.fa-chevron-left');
+const listDay1 = document.querySelectorAll('.listDay')[0];
+const listDay2 = document.querySelectorAll('.listDay')[1];
+const listDay3 = document.querySelectorAll('.listDay')[2];
+const listDay4 = document.querySelectorAll('.listDay')[3];
 
 eventListeners();
 
 function eventListeners() {
   listClick.addEventListener('click', addTodo);
   document.addEventListener('DOMContentLoaded', loadAllTodosToUI);
+  next.addEventListener('click', nextDate);
+  prev.addEventListener('click', prevDate);
+  listDay1.addEventListener('click', displayDay);
+  listDay2.addEventListener('click', displayWeek);
+  listDay3.addEventListener('click', displayMonth);
+  listDay4.addEventListener('click', displayYear);
 }
 
 //Date Options
 
-//Date.toLocaleString() yöntemini Kullandim
-//Haftanin hangi gunu oldugunu string sekilde aldim
-let today = new Date().toLocaleString('en-us', { weekday: 'long' });
-dateDay.innerHTML = today;
+// //Date.toLocaleString() yöntemini Kullandim
+// //Haftanin hangi gunu oldugunu string sekilde aldim
 
-let month = new Date().toLocaleDateString('en-us', {
+function displayDay() {
+  location.reload();
+}
+
+function displayWeek() {
+  let oneJan = new Date(today.getFullYear(), 0, 1);
+  let numberOfDays = Math.floor((today - oneJan) / (24 * 60 * 60 * 1000));
+  let result = Math.ceil((today.getDay() + 1 + numberOfDays) / 7);
+  dateDay.innerHTML = result;
+  dateDay.style.transform = 'scale(1.3)';
+  dateDay.style.transition = '0.5s';
+  dateDay.style.color = '#fff';
+  dateMonth.style.color = 'transparent';
+  dateMonth.style.paddingBottom = '0';
+  dateMonth.style.fontSize = '0';
+}
+function displayMonth() {
+  let month = new Intl.DateTimeFormat('en-us', {
+    month: 'long',
+  });
+
+  dateMonth.style.transform = 'scale(1.3)';
+  dateMonth.style.transition = '0.5s';
+  dateMonth.style.color = '#fff';
+  dateDay.style.color = 'transparent';
+  dateMonth.style.paddingBottom = '1.75rem';
+  dateMonth.style.fontSize = '1.5rem';
+  dateDay.style.paddingTop = '0';
+  dateMonth.innerHTML = month.format();
+}
+function displayYear() {
+  let year = new Intl.DateTimeFormat('en-us', {
+    year: 'numeric',
+  });
+
+  dateDay.style.transform = 'scale(1.3)';
+  dateDay.style.transition = '0.5s';
+  dateDay.style.color = '#fff';
+  dateMonth.style.color = 'transparent';
+  dateMonth.style.paddingBottom = '0';
+  dateMonth.style.fontSize = '0';
+  dateDay.innerHTML = year.format();
+}
+
+//ilk basta tolacaleString() kullanmistim fakat ileri ve geri yapabilmek icin Intl.DateTimeFormat kullandim
+
+let today = new Date();
+
+let formatter = new Intl.DateTimeFormat('en-us', {
+  weekday: 'long',
+});
+dateDay.innerHTML = formatter.format();
+
+let month = new Intl.DateTimeFormat('en-us', {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
 });
-dateMonth.innerHTML = month;
+dateMonth.innerHTML = month.format();
+
+function nextDate() {
+  dateDay.innerHTML = formatter.format(today.setDate(today.getDate() + 1));
+  dateMonth.innerHTML = month.format(today.setDate(today.getDate()));
+}
+function prevDate() {
+  dateDay.innerHTML = formatter.format(today.setDate(today.getDate() - 1));
+  dateMonth.innerHTML = month.format(today.setDate(today.getDate()));
+}
 
 //Sayfa Yenilendiginde Todolarin Kalmasi
 function loadAllTodosToUI() {
@@ -150,7 +220,7 @@ function addTodoToUI(newTodo) {
   };
   //storagede kalsin todoui dan sil
   hiddenList2.onclick = function () {
-    console.log('merhaba');
+    text.parentElement.remove();
   };
   //delete
   hiddenList3.onclick = function () {

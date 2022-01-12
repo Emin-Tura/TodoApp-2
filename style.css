@@ -85,20 +85,23 @@ nav ul li::after {
   align-items: center;
   justify-content: center;
 }
-.dayD,
-.weekD,
-.monthD {
-  display: none;
+.date-box .fas {
+  transition: 0.5s;
 }
 
+.date-box .fas:hover {
+  transform: scale(1.7);
+}
 .date {
   margin: 0 3rem;
   text-align: center;
   color: #747a83;
+  width: 8rem;
 }
 .date h1 {
   font-size: 1.75rem;
   color: #e1eaf2;
+  text-align: center;
 }
 .dart {
   font-size: 1.35rem;
