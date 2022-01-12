@@ -28,13 +28,6 @@ function eventListeners() {
 
 //Date Options
 
-// //Date.toLocaleString() yöntemini Kullandim
-// //Haftanin hangi gunu oldugunu string sekilde aldim
-//Date.toLocaleString() yöntemini kullandim
-//Haftanin hangi gunu oldugunu string sekilde aldim
-let today = new Date().toLocaleString('en-us', { weekday: 'long' });
-dateDay.innerHTML = today;
-
 function displayDay() {
   location.reload();
 }
@@ -78,6 +71,8 @@ function displayYear() {
   dateMonth.style.fontSize = '0';
   dateDay.innerHTML = year.format();
 }
+// //Date.toLocaleString() yöntemini Kullandim
+// //Haftanin hangi gunu oldugunu string sekilde aldim
 
 //ilk basta tolacaleString() kullanmistim fakat ileri ve geri yapabilmek icin Intl.DateTimeFormat kullandim
 
@@ -222,6 +217,7 @@ function addTodoToUI(newTodo) {
   hiddenList1.onclick = function () {
     console.log('merhaba');
   };
+  //storagede kalsin todoui dan sil
   hiddenList2.onclick = function () {
     text.parentElement.remove();
   };
